@@ -25,6 +25,7 @@ describe OysterCard do
     it { is_expected.to respond_to(:touch_in) }
 
     it 'a card is in use once it has been touched in' do
+      subject.top_up(10.00)
       subject.touch_in
       expect(subject).to be_in_journey
     end
