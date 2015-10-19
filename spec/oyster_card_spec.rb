@@ -30,6 +30,12 @@ describe OysterCard do
     end
 
     it { is_expected.to respond_to(:touch_out) }
+
+    it 'a card is no longer in use after it has been touched out' do
+      subject.touch_in
+      subject.touch_out
+      expect(subject.in_journey?).to be false
+    end
   end
 
   context '#top_up' do
