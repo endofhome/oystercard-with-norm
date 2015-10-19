@@ -26,15 +26,20 @@ describe OysterCard do
 
     it 'a card is in use once it has been touched in' do
       subject.touch_in
-      expect(subject.in_journey?).to be true
+      expect(subject).to be_in_journey
     end
 
     it { is_expected.to respond_to(:touch_out) }
 
     it 'a card is no longer in use after it has been touched out' do
+      subject.top_up(10.00)
       subject.touch_in
       subject.touch_out
-      expect(subject.in_journey?).to be false
+      expect(subject).not_to be_in_journey
+    end
+
+    it 'a card cannot be touched in if it does not have at least the min balance' do
+      expect { subject.touch_in }.to raise_error "Unable to Touch In. Balance is below minimum: Balance #{subject.balance}"
     end
   end
 
