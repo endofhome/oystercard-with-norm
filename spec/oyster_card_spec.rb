@@ -19,12 +19,16 @@ describe OysterCard do
     it { is_expected.to respond_to(:top_up).with(1).argument }
 
     it 'adds the amount to the balance' do
-      expect(subject.top_up(100.00)).to eq (starting_balance + 100.00)
+      expect(subject.top_up(10.00)).to eq (starting_balance + 10.00)
     end
 
     it 'stores the new balance after topping up' do
-      subject.top_up(100.00)
-      expect(subject.balance).to eq (starting_balance + 100.00)
+      subject.top_up(10.00)
+      expect(subject.balance).to eq (starting_balance + 10.00)
+    end
+
+    it 'raises an error if trying to top up above the maximum limit' do
+      expect(subject.top_up(100.00)).to raise_error 'Top Up Failed - Over Max Balance'
     end
   end
 
