@@ -13,6 +13,10 @@ describe OysterCard do
     it 'initializes the balance with a given value' do
       expect(subject.balance).to eq starting_balance
     end
-
   end
+
+  context '#top_up' do
+    it { is_expected.to respond_to(:top_up).with(1).argument }
+  end
+
 end
