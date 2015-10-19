@@ -22,6 +22,9 @@ class OysterCard
     @in_journey
   end
 
+  def touch_in
+  end
+
   private
 
   def over_max_balance? amount
