@@ -14,7 +14,7 @@ class OysterCard
   end
 
   def deduct amount
-    balance - amount
+    @balance -= amount
   end
 
   private
