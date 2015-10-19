@@ -28,7 +28,7 @@ describe OysterCard do
     end
 
     it 'raises an error if trying to top up above the maximum limit' do
-      expect(subject.top_up(100.00)).to raise_error 'Top Up Failed - Over Max Balance'
+      expect {subject.top_up(100.00)}.to raise_error "Top Up Failed - Max Balance #{OysterCard::MAX_BALANCE}"
     end
   end
 
