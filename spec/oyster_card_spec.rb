@@ -21,6 +21,11 @@ describe OysterCard do
     it 'adds the amount to the balance' do
       expect(subject.top_up(100.00)).to eq (starting_balance + 100.00)
     end
+
+    it 'stores the new balance after topping up' do
+      subject.top_up(100.00)
+      expect(subject.balance).to eq (starting_balance + 100.00)
+    end
   end
 
 end
