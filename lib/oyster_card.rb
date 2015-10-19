@@ -13,6 +13,9 @@ class OysterCard
     @balance += amount
   end
 
+  def deduct amount
+  end
+
   private
 
   def over_max_balance? amount
