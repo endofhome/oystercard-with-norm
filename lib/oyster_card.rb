@@ -23,6 +23,7 @@ class OysterCard
   end
 
   def touch_in
+    @in_journey = true
   end
 
   private

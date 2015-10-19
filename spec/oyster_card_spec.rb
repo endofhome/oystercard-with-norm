@@ -28,6 +28,8 @@ describe OysterCard do
       subject.touch_in
       expect(subject.in_journey?).to be true
     end
+
+    it { is_expected.to respond_to(:touch_out) }
   end
 
   context '#top_up' do
