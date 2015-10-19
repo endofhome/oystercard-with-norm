@@ -21,6 +21,8 @@ describe OysterCard do
     it 'a new card is not in a journey' do
       expect(subject.in_journey?).to be false
     end
+
+    it { is_expected.to respond_to(:touch_in) }
   end
 
   context '#top_up' do
