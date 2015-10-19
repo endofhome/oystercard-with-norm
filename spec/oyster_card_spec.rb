@@ -38,6 +38,11 @@ describe OysterCard do
     it 'deducts the amount from the balance' do
       expect(subject.deduct(10.00)).to eq (starting_balance - 10.00)
     end
+
+    it 'stores new balance after deducting fare' do
+      subject.deduct(10.00)
+      expect(subject.balance).to eq (starting_balance - 10.00)
+    end
   end
 
 end
