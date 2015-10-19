@@ -31,5 +31,7 @@ describe OysterCard do
       expect {subject.top_up(100.00)}.to raise_error "Top Up Failed - Max Balance #{OysterCard::MAX_BALANCE}"
     end
   end
-
+  context 'Deducting a fare' do
+    it { is_expected_to respond_to(:deduct).with(1).argument }
+  end
 end

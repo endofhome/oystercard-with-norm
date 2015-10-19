@@ -9,7 +9,7 @@ class OysterCard
   end
 
   def top_up amount
-    raise 'Top Up Failed - Over Max Balance' if over_max_balance? amount
+    raise "Top Up Failed - Max Balance #{OysterCard::MAX_BALANCE}" if over_max_balance? amount
     @balance += amount
   end
 
